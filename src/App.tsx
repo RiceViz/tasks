@@ -9,7 +9,7 @@ function App(): JSX.Element {
             </header>
             <p>
                 Edit <code>src/App.tsx</code> and save. This page will
-                automatically reload. It is Tyran Rice Jr.
+                automatically reload. It is Tyran Rice Jr. Hello World!
             </p>
         </div>
     );
