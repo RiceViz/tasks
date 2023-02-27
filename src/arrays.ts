@@ -71,7 +71,15 @@ export const removeDollars = (amounts: string[]): number[] => {
  * in question marks ("?").
  */
 export const shoutIfExclaiming = (messages: string[]): string[] => {
-    return [];
+    const new_messages: string[] = [];
+    messages.map((message: string): void => {
+        if (message.charAt(message.length - 1) === "!") {
+            new_messages.push(message.toUpperCase());
+        } else if (message.charAt(message.length - 1) !== "?") {
+            new_messages.push(message);
+        }
+    });
+    return new_messages;
 };
 
 /**
