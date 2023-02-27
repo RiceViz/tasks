@@ -1,3 +1,5 @@
+import { isArrayBufferView } from "util/types";
+
 /**
  * Consume an array of numbers, and return a new array containing
  * JUST the first and last number. If there are no elements, return
@@ -153,5 +155,21 @@ export function makeMath(addends: number[]): string {
  * And the array [1, 9, 7] would become [1, 9, 7, 17]
  */
 export function injectPositive(values: number[]): number[] {
-    return [];
+    const new_values: number[] = [];
+    let isFirst = false;
+    let sum = 0;
+    values.filter((num: number): void => {
+        if (num < 0 && isFirst === false) {
+            new_values.push(num);
+            new_values.push(sum);
+            isFirst = true;
+        } else {
+            new_values.push(num);
+            sum += num;
+        }
+    });
+    if (isFirst === false) {
+        new_values.push(sum);
+    }
+    return new_values;
 }
