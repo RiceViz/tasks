@@ -10,10 +10,19 @@ export function makeBlankQuestion(
     name: string,
     type: QuestionType
 ): Question {
-    return {};
+    return {
+        id: id,
+        name: name,
+        type: type,
+        body: "",
+        expected: "",
+        options: [],
+        points: 1,
+        published: false
+    };
 }
 
-/**
+/*
  * Consumes a question and a potential `answer`, and returns whether or not
  * the `answer` is correct. You should check that the `answer` is equal to
  * the `expected`, ignoring capitalization and trimming any whitespace.
@@ -21,6 +30,11 @@ export function makeBlankQuestion(
  * HINT: Look up the `trim` and `toLowerCase` functions.
  */
 export function isCorrect(question: Question, answer: string): boolean {
+    if (
+        question.expected.toLowerCase().trim() === answer.toLowerCase().trim()
+    ) {
+        return true;
+    }
     return false;
 }
 
