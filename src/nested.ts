@@ -55,7 +55,13 @@ export function findQuestion(
  * with the given `id`.
  */
 export function removeQuestion(questions: Question[], id: number): Question[] {
-    return [];
+    const newQuestions = [];
+    for (let i = 0; i < questions.length; i++) {
+        if (questions[i].id !== id) {
+            newQuestions.push(questions[i]);
+        }
+    }
+    return newQuestions;
 }
 
 /***
