@@ -6,7 +6,13 @@ import { Question, QuestionType } from "./interfaces/question";
  * that are `published`.
  */
 export function getPublishedQuestions(questions: Question[]): Question[] {
-    return [];
+    const publishedQuestion = [];
+    for (let i = 0; i < questions.length; i++) {
+        if (questions[i].published === true) {
+            publishedQuestion.push(questions[i]);
+        }
+    }
+    return publishedQuestion;
 }
 
 /**
