@@ -80,14 +80,24 @@ export function getNames(questions: Question[]): string[] {
  * Consumes an array of questions and returns the sum total of all their points added together.
  */
 export function sumPoints(questions: Question[]): number {
-    return 0;
+    let num = 0;
+    for (let i = 0; i < questions.length; i++) {
+        num += questions[i].points;
+    }
+    return num;
 }
 
 /***
  * Consumes an array of questions and returns the sum total of the PUBLISHED questions.
  */
 export function sumPublishedPoints(questions: Question[]): number {
-    return 0;
+    let num = 0;
+    for (let i = 0; i < questions.length; i++) {
+        if (questions[i].published === true) {
+            num += questions[i].points;
+        }
+    }
+    return num;
 }
 
 /***
