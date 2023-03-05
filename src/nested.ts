@@ -277,7 +277,23 @@ export function editOption(
     targetOptionIndex: number,
     newOption: string
 ): Question[] {
-    return [];
+    const newArray = [];
+    for (let i = 0; i < questions.length; i++) {
+        if (questions[i].id !== targetId) {
+            newArray.push(questions[i]);
+        } else {
+            newArray.push({
+                ...questions[i],
+                options: [...questions[i].options]
+            });
+            if (targetOptionIndex === -1) {
+                newArray[i].options.push(newOption);
+            } else {
+                newArray[i].options.splice(targetOptionIndex, 1, newOption);
+            }
+        }
+    }
+    return newArray;
 }
 
 /***
