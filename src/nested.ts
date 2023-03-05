@@ -118,7 +118,35 @@ id,name,options,points,published
  * Check the unit tests for more examples!
  */
 export function toCSV(questions: Question[]): string {
-    return "";
+    let csv = "id,name,options,points,published\n";
+    for (let i = 0; i < questions.length - 1; i++) {
+        csv =
+            csv +
+            "" +
+            questions[i].id +
+            "," +
+            questions[i].name +
+            "," +
+            questions[i].options.length +
+            "," +
+            questions[i].points +
+            "," +
+            questions[i].published +
+            "\n";
+    }
+    csv =
+        csv +
+        "" +
+        questions[questions.length - 1].id +
+        "," +
+        questions[questions.length - 1].name +
+        "," +
+        questions[questions.length - 1].options.length +
+        "," +
+        questions[questions.length - 1].points +
+        "," +
+        questions[questions.length - 1].published;
+    return csv;
 }
 
 /**
