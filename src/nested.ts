@@ -224,7 +224,15 @@ export function renameQuestionById(
     targetId: number,
     newName: string
 ): Question[] {
-    return [];
+    const newArray = [];
+    for (let i = 0; i < questions.length; i++) {
+        if (questions[i].id !== targetId) {
+            newArray.push(questions[i]);
+        } else {
+            newArray.push({ ...questions[i], name: newName });
+        }
+    }
+    return newArray;
 }
 
 /***
