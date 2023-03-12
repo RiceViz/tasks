@@ -1,5 +1,4 @@
 import React from "react";
-import dancing_cartoon_picture from "./assets/cartoondancing.gif";
 import "./App.css";
 import { ChangeType } from "./components/ChangeType";
 import { RevealAnswer } from "./components/RevealAnswer";
