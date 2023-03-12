@@ -1,3 +1,5 @@
+/* eslint-disable indent */
+/* eslint-disable prettier/prettier */
 import { Answer } from "./interfaces/answer";
 import { Question, QuestionType } from "./interfaces/question";
 import { duplicateQuestion, makeBlankQuestion } from "./objects";
@@ -39,13 +41,13 @@ export function findQuestion(
     const matchingID = questions.some(
         (question: Question): boolean => question.id === id
     );
-    if (matchingID === true) {
+    if (matchingID === false) {
+        return null;
+    } else {
         const question = questions.find(
             (question: Question): boolean => question.id === id
         );
         return question;
-    } else {
-        return null;
     }
 }
 
