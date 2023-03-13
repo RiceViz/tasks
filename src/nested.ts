@@ -38,16 +38,13 @@ export function findQuestion(
     questions: Question[],
     id: number
 ): Question | null {
-    const matchingID = questions.some(
+    const newQuestion = questions.filter(
         (question: Question): boolean => question.id === id
     );
-    if (matchingID === false) {
+    if (newQuestion.length === 0) {
         return null;
     } else {
-        const question = questions.find(
-            (question: Question): boolean => question.id === id
-        );
-        return question;
+        return newQuestion[0];
     }
 }
 
